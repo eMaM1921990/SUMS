@@ -61,17 +61,17 @@
 
                     <div class="hr hr-8 hr-double dotted"></div>
 
-                    <form method="post" action="http://qsthemes.com/demo/ekoders/admin/index.html">
+                    <form method="post" action="LogAuth">
                         <div class="form-group">
                             <div class="input-icon right">
                                 <span class="fa fa-key text-gray"></span>
-                                <input type="text" class="form-control" placeholder="Username">
+                                <input type="text" class="form-control" placeholder="Username" name="username">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-icon right">
                                 <span class="fa fa-lock text-gray"></span>
-                                <input type="password" class="form-control" placeholder="your password">
+                                <input type="password" class="form-control" placeholder="your password" name="pass">
                             </div>
                         </div>
                         <div class="tcb">
