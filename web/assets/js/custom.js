@@ -197,3 +197,38 @@ function Resgistration() {
         });
     }
 }
+
+
+function changePassword(fromsession,user_val,newval){
+    
+    if(getCurrentPassword(fromsession,user_val)===true){
+        document.getElementById('change').innerHTML="Change Password";
+        $.post('ChangePassword',{pass:newval},function(responseText){
+            document.getElementById('change').innerHTML="Change Password"+"<b style='color:green'>... "+responseText+" </b>";
+            document.getElementById('cancel').click();
+        });
+    }else{
+        document.getElementById('change').innerHTML="Change Password"+"<b style='color:red'>... Wrong password </b>";
+        //document.getElementById('change').style.color='red';
+    }
+}
+
+
+function getCurrentPassword(fromsession,user_val){
+    if(fromsession.trim()===user_val.trim()){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+function validationUpdatePersonalInfo(forname,surname){
+    if(forname.trim()===''){
+        
+    }else{
+        
+    }
+    
+    
+}

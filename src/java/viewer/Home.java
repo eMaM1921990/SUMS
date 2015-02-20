@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
 
-import doa.PersonDAO;
+package viewer;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -13,14 +13,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Person;
 
 /**
  *
  * @author emam
  */
-public class LogAuth extends HttpServlet {
+public class Home extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,27 +32,8 @@ public class LogAuth extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username = request.getParameter("username");
-        String password = request.getParameter("pass");
-        Person p = new Person();
-        p.setUsername(username);
-        p.setPassword(password);
-        PersonDAO dao = new PersonDAO();
-        int i = dao.FindByUser(p);
-        System.out.println("User ID :" + i);
-        if (i > 0) {
-            HttpSession session = request.getSession();
-            p.setUsername(username);
-            p.setPassword(password);
-            session.setAttribute("login", p);
-            dao.updatelastloged(p);
-            RequestDispatcher send = request.getRequestDispatcher("Home");
+                    RequestDispatcher send=request.getRequestDispatcher("home.jsp");
             send.forward(request, response);
-            System.err.println("Logged");
-        } else {
-            RequestDispatcher send = request.getRequestDispatcher("Login");
-            send.forward(request, response);
-        }
 
     }
 

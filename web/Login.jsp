@@ -75,8 +75,8 @@
                             </div>
                         </div>
                         <div class="tcb">
-
-                            <a href="#" class="pull-right btn btn-primary">Login<i class="fa fa-key icon-on-right"></i></a>
+                            <button type="submit" class="pull-right btn btn-primary"><i class="fa fa-key icon-on-right"></i>Login</button>
+<!--                            <a href="#" class="pull-right btn btn-primary">Login<i class="fa fa-key icon-on-right"></i></a>-->
                             <div class="clearfix"></div>
                         </div>				
 
@@ -107,7 +107,7 @@
 
                     <div class="hr hr-8 hr-double dotted"></div>
 
-                    <form method="post" action="http://qsthemes.com/demo/ekoders/admin/index.html">
+                    <form method="post" >
                         <div class="form-group">
                             <div class="input-icon right">
                                 <span class="fa fa-envelope text-gray"></span>
@@ -137,7 +137,7 @@
 
                     <div class="hr hr-8 hr-double dotted"></div>
 
-                    <form method="post" action="http://qsthemes.com/demo/ekoders/admin/index.html">
+                    <form method="post" >
                         <div class="form-group">
                             <div class="input-icon right">
                                 <span class="fa fa-user text-gray"></span>

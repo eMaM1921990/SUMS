@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+
+package viewer;
 
 import doa.PersonDAO;
 import java.io.IOException;
@@ -20,7 +21,7 @@ import model.Person;
  *
  * @author emam
  */
-public class LogAuth extends HttpServlet {
+public class Profile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,28 +35,18 @@ public class LogAuth extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username = request.getParameter("username");
-        String password = request.getParameter("pass");
-        Person p = new Person();
-        p.setUsername(username);
-        p.setPassword(password);
-        PersonDAO dao = new PersonDAO();
-        int i = dao.FindByUser(p);
-        System.out.println("User ID :" + i);
-        if (i > 0) {
-            HttpSession session = request.getSession();
-            p.setUsername(username);
-            p.setPassword(password);
-            session.setAttribute("login", p);
-            dao.updatelastloged(p);
-            RequestDispatcher send = request.getRequestDispatcher("Home");
-            send.forward(request, response);
-            System.err.println("Logged");
-        } else {
-            RequestDispatcher send = request.getRequestDispatcher("Login");
-            send.forward(request, response);
-        }
-
+        HttpSession session=request.getSession();
+        Person p=(Person)session.getAttribute("login");
+        p.setUsername(p.getUsername());
+        PersonDAO pdao=new PersonDAO();
+        Person p_ret=pdao.FindByEntity(p);
+        p.setPassword(p_ret.getPassword());
+        p.setForname(p_ret.getForname());
+        p.setSurename(p_ret.getSurename());
+        session.setAttribute("login", p);
+        
+        RequestDispatcher send=request.getRequestDispatcher("MyProfile.jsp");
+        send.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
