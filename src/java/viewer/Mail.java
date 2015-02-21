@@ -1,26 +1,29 @@
+package viewer;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
 
-import doa.PersonDAO;
+import doa.MailDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Mails;
 import model.Person;
 
 /**
  *
  * @author emam
  */
-public class LogAuth extends HttpServlet {
+public class Mail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,30 +37,13 @@ public class LogAuth extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username = request.getParameter("username");
-        String password = request.getParameter("pass");
-        Person p = new Person();
-        p.setUsername(username);
-        p.setPassword(password);
-        PersonDAO dao = new PersonDAO();
-        int i = dao.FindByUser(p);
-        System.out.println("User ID :" + i);
-        if (i > 0) {
-            HttpSession session = request.getSession();
-            p.setUsername(username);
-            p.setPassword(password);
-            p.setId(i);
-            session.setAttribute("login", p);
-            dao.updatelastloged(p);
-            RequestDispatcher send = request.getRequestDispatcher("Home");
-            send.forward(request, response);
-            System.err.println("Logged");
-        } else {
-            System.err.println("not reg");
-            RequestDispatcher send = request.getRequestDispatcher("Login");
-            send.forward(request, response);
-        }
-
+        HttpSession session=request.getSession();
+        Person p=(Person)session.getAttribute("login");
+        MailDAO dao=new MailDAO();
+        List<Mails> data=dao.FindByParentId(p.getId());
+        RequestDispatcher send=request.getRequestDispatcher("ManageMail.jsp");
+        request.setAttribute("mail", data);
+        send.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -24,6 +24,22 @@
         <servlet-name>ChangePassword</servlet-name>
         <servlet-class>controller.ChangePassword</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Mail</servlet-name>
+        <servlet-class>viewer.Mail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddMail</servlet-name>
+        <servlet-class>viewer.AddMail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addMails</servlet-name>
+        <servlet-class>controller.addMails</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deletemail</servlet-name>
+        <servlet-class>controller.deletemail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -47,6 +63,22 @@
     <servlet-mapping>
         <servlet-name>ChangePassword</servlet-name>
         <url-pattern>/ChangePassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Mail</servlet-name>
+        <url-pattern>/Mail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddMail</servlet-name>
+        <url-pattern>/AddMail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addMails</servlet-name>
+        <url-pattern>/addMails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deletemail</servlet-name>
+        <url-pattern>/deletemail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

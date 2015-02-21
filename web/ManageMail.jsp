@@ -6,6 +6,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:useBean  scope="session" class="model.Person" id="login"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +89,7 @@
 							<div class="collapse navbar-collapse top-collapse">
 								<!-- .nav -->
 								<ul class="nav navbar-left navbar-nav">
-									<li><a href="index.html">Dashboard</a></li>
+									<li><a href="index.html">Mails</a></li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 											Actions <b class="caret"></b>
@@ -124,7 +128,7 @@
 								
 								<div class="page-header title">
 								<!-- PAGE TITLE ROW -->
-									<h1>DashBoard <span class="sub-title"></span></h1>								
+									<h1>Mail List <span class="sub-title"></span></h1>								
 								</div>
 								
 									
@@ -135,9 +139,51 @@
 						<div class="row">
 							<div class="col-lg-12">
 							
-							<!-- START YOUR CONTENT HERE -->
-								<p>This is a light-weight blank page, with minimum to none plugins loaded</p>
-							<!-- END YOUR CONTENT HERE -->
+							<div class="portlet"><!-- /Portlet -->
+									<div class="portlet-heading dark">
+										<div class="portlet-title">
+											<h4>Mails <small class="text-white"></small></h4>
+										</div>
+										<div class="portlet-widgets">
+											<a data-toggle="collapse" data-parent="#accordion" href="#basic"><i class="fa fa-chevron-down"></i></a>
+											<span class="divider"></span>
+											<a href="#" class="box-close"><i class="fa fa-times"></i></a>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<div id="basic" class="panel-collapse collapse in">
+										<div class="portlet-body no-padding">
+											<table class="table table-bordered table-hover tc-table">
+												<thead>
+													<tr>
+														
+														<th>Mail</th>
+														
+														<th class="col-medium center">Action</th>
+													</tr>
+												</thead>
+												<tbody>
+                                                                                                    
+                                                                                                    <c:forEach items="${mail}" var="m">
+													<tr>
+														
+                                                                                                            <td class="hidden-xs"><c:out value="${m.getMail()}"></c:out></td>
+														
+														<td class="col-medium center">
+															<div class="btn-group btn-group-xs ">
+																<a href="#" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
+                                                                                                                                <a href="deletemail?id=<c:out value="${m.getId()}"></c:out>" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>
+															</div>	
+														</td>
+													</tr>
+                                                                                                        
+                                                                                                        </c:forEach>
+													
+												</tbody>
+											</table>												
+										</div>
+									</div>
+								</div><!-- /Portlet -->
 					
 							</div>
 						</div>

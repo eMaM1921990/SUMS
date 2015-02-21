@@ -87,7 +87,7 @@ public class PersonDAO implements dao<Person> {
         try {
 
             db.connect();
-            String sql = "SELECT COUNT(idPerson) AS CHEK FROM Person WHERE Username=? AND Password=?";
+            String sql = "SELECT idPerson AS CHEK FROM Person WHERE Username=? AND Password=?";
             db.pstm = db.con.prepareStatement(sql);
             db.pstm.setString(1, p.getUsername());
             db.pstm.setString(2, p.getPassword());

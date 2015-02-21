@@ -51,10 +51,10 @@ public class Login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        PersonstatusDAO dao=new PersonstatusDAO();
-        java.util.List<PerstonStatus> data=dao.FindAll();
+       /* PersonstatusDAO dao=new PersonstatusDAO();
+        java.util.List<PerstonStatus> data=dao.FindAll();*/
         RequestDispatcher packet=request.getRequestDispatcher("Login.jsp");
-        request.setAttribute("personstatus", data);
+        //request.setAttribute("personstatus", data);
         packet.forward(request, response);
     }
 
