@@ -40,6 +40,14 @@
         <servlet-name>deletemail</servlet-name>
         <servlet-class>controller.deletemail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewEditmail</servlet-name>
+        <servlet-class>viewer.ViewEditmail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editmail</servlet-name>
+        <servlet-class>controller.editmail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>deletemail</servlet-name>
         <url-pattern>/deletemail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewEditmail</servlet-name>
+        <url-pattern>/ViewEditmail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editmail</servlet-name>
+        <url-pattern>/editmail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -171,7 +171,7 @@
 														
 														<td class="col-medium center">
 															<div class="btn-group btn-group-xs ">
-																<a href="#" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
+																<a href="ViewEditmail?id=<c:out value="${m.getId()}"></c:out>&name=<c:out value="${m.getMail()}"></c:out>" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
                                                                                                                                 <a href="deletemail?id=<c:out value="${m.getId()}"></c:out>" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>
 															</div>	
 														</td>

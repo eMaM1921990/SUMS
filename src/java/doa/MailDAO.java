@@ -86,7 +86,19 @@ public class MailDAO implements dao<Mails>{
 
     @Override
     public String update(Mails o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            db.connect();
+            db.pstm=db.con.prepareStatement("UPDATE Email SET Email_address=? WHERE idEmail=?");
+            db.pstm.setString(1, o.getMail());
+            db.pstm.setInt(2, o.getId());
+            db.pstm.executeUpdate();
+            db.closeConnection();
+        } catch (SQLException ex) {
+            db.closeConnection();
+            Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return "Ok";
     }
     
 }
