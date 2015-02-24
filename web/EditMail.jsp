@@ -96,7 +96,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li> <a href="Mail">Manage Mail</a></li>
-                                    </ul>
+                                        <li> <a href="Ideas">Manage Idea</a></li>                                    </ul>
                                 </li>
 
                             </ul><!-- /.nav -->
@@ -203,22 +203,22 @@
                 <!-- END MAIN PAGE CONTENT -->
             </div>  
         </div> 
+    </div>	 
+    <!-- core JavaScript -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/plugins/pace/pace.min.js"></script>
 
-        <!-- core JavaScript -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="assets/js/plugins/pace/pace.min.js"></script>
+    <!-- PAGE LEVEL PLUGINS JS -->
 
-        <!-- PAGE LEVEL PLUGINS JS -->
+    <!-- Themes Core Scripts -->	
+    <script src="assets/js/main.js"></script>
 
-        <!-- Themes Core Scripts -->	
-        <script src="assets/js/main.js"></script>
+    <!-- REQUIRE FOR SPEECH COMMANDS -->
+    <script src="assets/js/speech-commands.js"></script>
+    <script src="assets/js/plugins/gritter/jquery.gritter.min.js"></script>	
 
-        <!-- REQUIRE FOR SPEECH COMMANDS -->
-        <script src="assets/js/speech-commands.js"></script>
-        <script src="assets/js/plugins/gritter/jquery.gritter.min.js"></script>	
-
-        <!-- initial page level scripts for examples -->	
-    </body>
+    <!-- initial page level scripts for examples -->	
+</body>
 </html>

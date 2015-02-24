@@ -92,7 +92,8 @@
                                         Actions <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li> <a href="pricing.html">Manage Mail</a></li>
+                                        <li> <a href="Mail">Manage Mail</a></li>
+                                        <li> <a href="Ideas">Manage Idea</a></li>
                                     </ul>
                                 </li>
 
@@ -246,7 +247,7 @@
                 <!-- END MAIN PAGE CONTENT -->
             </div>  
         </div> 
-
+</div>	 
         <!-- core JavaScript -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>

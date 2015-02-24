@@ -6,22 +6,24 @@
 
 package viewer;
 
-import doa.PersonstatusDAO;
-
+import doa.ProjectIdeadao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.PerstonStatus;
+import javax.servlet.http.HttpSession;
+import model.Person;
+import model.ProjectIdea;
 
 /**
  *
  * @author emam
  */
-public class Login extends HttpServlet {
+public class Ideas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +37,13 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        HttpSession session=request.getSession();
+        Person p=(Person)session.getAttribute("login");
+        ProjectIdeadao dao=new ProjectIdeadao();
+        List<ProjectIdea> data=dao.FindByParentId(p.getId());
+        RequestDispatcher send=request.getRequestDispatcher("ProjectIdea.jsp");
+       request.setAttribute("list", data);
+        send.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,11 +59,6 @@ public class Login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        PersonstatusDAO dao=new PersonstatusDAO();
-        java.util.List<PerstonStatus> data=dao.FindAll();
-        RequestDispatcher packet=request.getRequestDispatcher("Login.jsp");
-        request.setAttribute("personstatus", data);
-        packet.forward(request, response);
     }
 
     /**
