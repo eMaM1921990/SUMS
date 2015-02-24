@@ -129,7 +129,7 @@
 								
 								<div class="page-header title">
 								<!-- PAGE TITLE ROW -->
-									<h1>Mail List <span class="sub-title"></span></h1>								
+									<h1>Idea List <span class="sub-title"></span></h1>								
 								</div>
 								
 									
@@ -171,7 +171,7 @@
 												</thead>
 												<tbody>
                                                                                                     
-                                                                                                    <c:forEach items="${list}" var="l">
+                                                                                                    <c:forEach items="${list}" var="m">
 													<tr>
 														
                                                                                                             <td class="hidden-xs"><c:out value="${m.getTitle()}"></c:out></td>
@@ -183,7 +183,12 @@
 														
 														<td class="col-medium center">
 															<div class="btn-group btn-group-xs ">
-																<a href="ViewEditmail?id=<c:out value="${m.getId()}"></c:out>&name=<c:out value="${m.getTitle()}"></c:out>" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
+																<a href="ViewEditIdea?id=<c:out value="${m.getId()}"></c:out>
+                                                                                                                                    &title=<c:out value="${m.getTitle()}"></c:out>
+                                                                                                                                    &desc=<c:out value="${m.getDesc()}"></c:out>
+                                                                                                                                    &aims=<c:out value="${m.getAims()}"></c:out>
+                                                                                                                                    &acquestion=<c:out value="${m.getAcQuestion()}"></c:out>
+                                                                                                                                    &nof=<c:out value="${m.getNumberOfStudent()}"></c:out>" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
                                                                                                                                 
 															</div>	
 														</td>

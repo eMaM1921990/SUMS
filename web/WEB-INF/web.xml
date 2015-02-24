@@ -52,6 +52,22 @@
         <servlet-name>Ideas</servlet-name>
         <servlet-class>viewer.Ideas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddIdea</servlet-name>
+        <servlet-class>viewer.AddIdea</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addideas</servlet-name>
+        <servlet-class>controller.addideas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewEditIdea</servlet-name>
+        <servlet-class>viewer.ViewEditIdea</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editIdea</servlet-name>
+        <servlet-class>controller.editIdea</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -104,14 +120,28 @@
         <servlet-name>Ideas</servlet-name>
         <url-pattern>/Ideas</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddIdea</servlet-name>
+        <url-pattern>/AddIdea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addideas</servlet-name>
+        <url-pattern>/addideas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewEditIdea</servlet-name>
+        <url-pattern>/ViewEditIdea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editIdea</servlet-name>
+        <url-pattern>/editIdea</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <welcome-file-list>
         <welcome-file>Login</welcome-file>
     </welcome-file-list>
-        
 </web-app>
