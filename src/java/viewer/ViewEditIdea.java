@@ -32,7 +32,7 @@ public class ViewEditIdea extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher send=request.getRequestDispatcher("EditIdea.jsp");
+        RequestDispatcher send=request.getRequestDispatcher("/RegisteredUsers/EditIdea.jsp");
         
         request.setAttribute("title", request.getParameter("title").trim());
         request.setAttribute("desc", request.getParameter("desc").trim());

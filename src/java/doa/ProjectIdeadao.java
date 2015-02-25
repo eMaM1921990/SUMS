@@ -83,7 +83,31 @@ public class ProjectIdeadao implements dao.i.dao<ProjectIdea>{
 
     @Override
     public List<ProjectIdea> FindAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<ProjectIdea> data=new ArrayList<>();
+        db.connect();
+        try {
+            
+            db.pstm=db.con.prepareStatement("SELECT * FROM ProjectIdea");
+            db.rs=db.pstm.executeQuery();
+            while(db.rs.next()){
+                ProjectIdea p=new ProjectIdea();
+                p.setId(db.rs.getInt(1));
+                p.setTitle(db.rs.getString(2));
+                p.setDesc(db.rs.getString(3));
+                p.setAims(db.rs.getString(4));
+                p.setAcQuestion(db.rs.getString(5));
+                p.setDate(db.rs.getString(6));
+                p.setNumberOfStudent(db.rs.getInt(7));
+                p.setPersonid(db.rs.getInt(8));
+                data.add(p);
+            }
+            db.closeConnection();
+        } catch (SQLException ex) {
+            db.closeConnection();
+            Logger.getLogger(ProjectIdeadao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return data;
     }
 
     @Override

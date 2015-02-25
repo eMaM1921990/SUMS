@@ -41,7 +41,7 @@ public class Ideas extends HttpServlet {
         Person p=(Person)session.getAttribute("login");
         ProjectIdeadao dao=new ProjectIdeadao();
         List<ProjectIdea> data=dao.FindByParentId(p.getId());
-        RequestDispatcher send=request.getRequestDispatcher("ProjectIdea.jsp");
+        RequestDispatcher send=request.getRequestDispatcher("/RegisteredUsers/ProjectIdea.jsp");
        request.setAttribute("list", data);
         send.forward(request, response);
     }

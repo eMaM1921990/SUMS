@@ -45,7 +45,7 @@ public class Profile extends HttpServlet {
         p.setSurename(p_ret.getSurename());
         session.setAttribute("login", p);
         
-        RequestDispatcher send=request.getRequestDispatcher("MyProfile.jsp");
+        RequestDispatcher send=request.getRequestDispatcher("/RegisteredUsers/MyProfile.jsp");
         send.forward(request, response);
     }
 

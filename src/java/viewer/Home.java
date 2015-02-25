@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package viewer;
 
+import doa.ProjectIdeadao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.ProjectIdea;
 
 /**
  *
@@ -32,8 +34,11 @@ public class Home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-                    RequestDispatcher send=request.getRequestDispatcher("home.jsp");
-            send.forward(request, response);
+        ProjectIdeadao dao=new ProjectIdeadao();
+        List<ProjectIdea> list=dao.FindAll();
+        RequestDispatcher send = request.getRequestDispatcher("home.jsp");
+        request.setAttribute("list", list);
+        send.forward(request, response);
 
     }
 

@@ -1,3 +1,12 @@
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- 
+    Document   : home
+    Created on : Feb 11, 2015, 2:30:20 AM
+    Author     : emam
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean  scope="session" class="model.Person" id="login"/>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,32 +64,7 @@
 					<div class="nav-top">
 						<!-- BEGIN RIGHT SIDE DROPDOWN BUTTONS -->
 							<ul class="nav navbar-right">					
-								<li class="dropdown">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-										<i class="fa fa-bars"></i>
-									</button>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<i class="fa fa-envelope"></i> <span class="badge up badge-primary">2</span>
-									</a>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<i class="fa fa-bell"></i> <span class="badge up badge-success">3</span>
-									</a>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<i class="fa fa-tasks"></i> <span class="badge up badge-info">7</span>
-									</a>
-								</li>
-								<!--Speech Icon-->
-								<li class="dropdown">
-									<a href="#" class="speech-button">
-										<i class="fa fa-microphone"></i>
-									</a>
-								</li>
+								
 								<!--Speech Icon-->
 								<li class="dropdown user-box">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -88,28 +72,13 @@
 									</a>
 									<ul class="dropdown-menu dropdown-user">
 										<li>
-											<a href="profile.html">
+											<a href="Profile">
 												<i class="fa fa-user"></i>My Profile
 											</a>
 										</li>
 									</ul>
 								</li>
-								<!--Search Box-->
-								<li class="dropdown nav-search-icon">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<span class="glyphicon glyphicon-search"></span>
-									</a>
-									<ul class="dropdown-menu dropdown-search">
-										<li>
-											<div class="search-box">
-												<form class="" role="search">
-													<input type="text" class="form-control" placeholder="Search" />
-												</form>
-											</div>
-										</li>
-									</ul>
-								</li>
-								<!--Search Box-->
+								
 							</ul>
 						<!-- END RIGHT SIDE DROPDOWN BUTTONS -->							
 						<!-- BEGIN TOP MENU -->
@@ -119,13 +88,15 @@
 									<li><a href="index.html">Dashboard</a></li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-											Pages <b class="caret"></b>
+											Actions <b class="caret"></b>
 										</a>
 										<ul class="dropdown-menu">
-											<li> <a href="pricing.html">Pricing</a></li>
+											<li> <a href="Mail">Manage Mail</a></li>
+                                                                                        <li> <a href="Ideas">Manage Idea</a></li>
 										</ul>
 									</li>
-									<li><a href="front/index.html">FrontEnd <span class="badge badge-primary">New</span></a></li>
+                                                                        
+									
 								</ul><!-- /.nav -->
 							</div>
 						<!-- END TOP MENU -->
@@ -134,77 +105,6 @@
 				<!-- END TOP NAVIGATION -->
 
 				
-				<!-- BEGIN SIDE NAVIGATION -->				
-				<nav class="navbar-side" role="navigation">
-					<div class="navbar-collapse sidebar-collapse collapse">
-					
-						<!-- BEGIN SHORTCUT BUTTONS -->
-						<div class="media">							
-							<ul class="sidebar-shortcuts">
-								<li><a class="btn"><i class="fa fa-user icon-only"></i></a></li>
-								<li><a class="btn"><i class="fa fa-envelope icon-only"></i></a></li>
-								<li><a class="btn"><i class="fa fa-th icon-only"></i></a></li>
-								<li><a class="btn"><i class="fa fa-gear icon-only"></i></a></li>
-							</ul>	
-						</div>
-						<!-- END SHORTCUT BUTTONS -->	
-							
-						<!-- BEGIN FIND MENU ITEM INPUT -->
-						<div class="media-search">	
-							<input type="text" class="input-menu" id="input-items" placeholder="Find...">
-						</div>						
-						<!-- END FIND MENU ITEM INPUT -->
-						
-						<ul id="side" class="nav navbar-nav side-nav">
-							<!-- BEGIN SIDE NAV MENU -->							
-							<!-- Navigation category -->
-							<li>
-								<h4>Navigation</h4> 								
-							</li>
-							<!-- END Navigation category -->
-							
-							<li>
-								<a class="active" href="index.html">
-									<i class="fa fa-dashboard"></i> Dashboard
-								</a>
-							</li>
-							<!-- BEGIN DROPDOWN -->
-							<li class="panel">
-								<a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle" data-target="#forms">
-									<i class="fa fa-cogs"></i> Elements <span class="fa arrow"></span>
-								</a>
-									<ul class="collapse nav" id="forms">
-										<li>
-											<a href="jquery-ui.html">
-												<i class="fa fa-angle-double-right"></i> jQuery UI 
-											</a>
-										</li>
-									</ul>
-							</li>
-							<!-- END DROPDOWN -->
-						</ul><!-- /.side-nav -->
-						
-						<div class="sidebar-labels">
-							<h4>Labels</h4>							
-							<ul>
-								<li><a href="#"><i class="fa fa-circle-o text-primary"></i> My Recent <span class="badge badge-primary">3</span></a></li>
-								<li><a href="#"><i class="fa fa-circle-o text-success"></i> Background</a></li>
-							</ul>
-						</div>
-						
-						<div class="sidebar-alerts">							
-							<div class="alert fade in">
-								<span>Sales Report</span>
-								<div class="progress progress-mini progress-striped active no-margin-bottom">
-									<div class="progress-bar progress-bar-primary" style="width: 36%"></div>
-								</div>
-								<small>Calculating daily bias... 36%</small>
-							</div>
-						</div>
-						
-					</div><!-- /.navbar-collapse -->
-				</nav><!-- /.navbar-side -->
-				<!-- END SIDE NAVIGATION -->
 				
 
 				<!-- BEGIN MAIN PAGE CONTENT -->
@@ -218,96 +118,34 @@
 										<li>
 											<a href="#">Home</a>
 										</li>
-										<li>Pages</li>
-										<li class="active">Blank</li>
 									</ul>
 									
-									<div class="b-right hidden-xs">
-										<ul>
-											<li><a href="#" title=""><i class="fa fa-signal"></i></a></li>
-											<li><a href="#" title=""><i class="fa fa-comments"></i></a></li>
-											<li class="dropdown"><a href="#" title="" data-toggle="dropdown"><i class="fa fa-plus"></i><span> Tasks</span></a>
-												<ul class="dropdown-menu dropdown-primary dropdown-menu-right">
-													<li><a href="#">Add new task</a></li>
-													<li><a href="#">Statement</a></li>
-													<li><a href="#">Settings</a></li>
-												</ul>
-											</li>
-										</ul>
-									</div>
+									
 								</div>
 								<!-- END BREADCRUMB -->	
 								
 								<div class="page-header title">
 								<!-- PAGE TITLE ROW -->
-									<h1>Blank Page <span class="sub-title">sub title</span></h1>								
+									<h1>DashBoard <span class="sub-title"></span></h1>								
 								</div>
 								
-								<!-- /#ek-layout-button -->	
-								<div class="qs-layout-menu">
-									<div class="btn btn-gray qs-setting-btn" id="qs-setting-btn">
-										<i class="fa fa-cog bigger-150 icon-only"></i>
-									</div>
-									<div class="qs-setting-box" id="qs-setting-box">
 									
-										<div class="hidden-xs hidden-sm">
-											<span class="bigger-120">Layout Options</span>
-											
-											<div class="hr hr-dotted hr-8"></div>
-											<label>
-												<input type="checkbox" class="tc" id="fixed-navbar" />
-													<span id="#fixed-navbar" class="labels"> Fixed NavBar</span>
-											</label>
-											<label>
-												<input type="checkbox" class="tc" id="fixed-sidebar" />
-													<span id="#fixed-sidebar" class="labels"> Fixed NavBar+SideBar</span>
-											</label>
-											<label>
-												<input type="checkbox" class="tc" id="sidebar-toggle" />
-													<span id="#sidebar-toggle" class="labels"> Sidebar Toggle</span>
-											</label>
-											<label>
-												<input type="checkbox" class="tc" id="in-container" />
-													<span id="#in-container" class="labels"> Inside<strong>.container</strong></span>
-											</label>
-										
-											<div class="space-4"></div>
-										</div>
-										
-										<span class="bigger-120">Color Options</span>
-										
-										<div class="hr hr-dotted hr-8"></div>
-										
-										<label>
-												<input type="checkbox" class="tc" id="side-bar-color" />
-												<span id="#side-bar-color" class="labels"> SideBar (Light)</span>
-										</label>
-										
-										<ul>									
-											<li><button class="btn" style="background-color:#d15050;" onclick="swapStyle('assets/css/themes/style.css')"></button></li>
-											<li><button class="btn" style="background-color:#86618f;" onclick="swapStyle('assets/css/themes/style-1.css')"></button></li> 
-											<li><button class="btn" style="background-color:#ba5d32;" onclick="swapStyle('assets/css/themes/style-2.css')"></button></li>
-											<li><button class="btn" style="background-color:#488075;" onclick="swapStyle('assets/css/themes/style-3.css')"></button></li>
-											<li><button class="btn" style="background-color:#4e72c2;" onclick="swapStyle('assets/css/themes/style-4.css')"></button></li>
-										</ul>
-											
-									</div>
-								</div>
-								<!-- /#ek-layout-button -->			
 								
 							</div><!-- /.col-lg-12 -->
 						</div><!-- /.row -->
 					<!-- END PAGE HEADING ROW -->					
-						<div class="row">
-							<div class="col-lg-12">
-							
-							<!-- START YOUR CONTENT HERE -->
-								<p>This is a light-weight blank page, with minimum to none plugins loaded</p>
-							<!-- END YOUR CONTENT HERE -->
-					
-							</div>
-						</div>
-						
+						<!-- END PAGE HEADING ROW -->					
+                     <!-- END PAGE HEADING ROW -->					
+                    <div class="row">
+                        
+                    </div>
+
+                    <!-- BEGIN FOOTER CONTENT -->
+
+                        </div>
+                    </div>
+
+                    <!-- BEGIN FOOTER CONTENT -->
 					<!-- BEGIN FOOTER CONTENT -->		
 						<div class="footer">
 							<div class="footer-inner">

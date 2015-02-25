@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package viewer;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,12 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author emam
  */
-public class ViewEditmail extends HttpServlet {
+public class Logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,9 +33,9 @@ public class ViewEditmail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher send=request.getRequestDispatcher("/RegisteredUsers/EditMail.jsp");
-        request.setAttribute("email", request.getParameter("name"));
-        request.setAttribute("id", request.getParameter("id"));
+        HttpSession session=request.getSession();
+        session.invalidate();
+        RequestDispatcher send=request.getRequestDispatcher("Login");
         send.forward(request, response);
     }
 

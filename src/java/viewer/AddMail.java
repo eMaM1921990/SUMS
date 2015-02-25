@@ -32,7 +32,7 @@ public class AddMail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher send=request.getRequestDispatcher("addmails.jsp");
+        RequestDispatcher send=request.getRequestDispatcher("/RegisteredUsers/addmails.jsp");
         send.forward(request, response);
                
     }

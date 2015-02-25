@@ -6,16 +6,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:useBean  scope="session" class="model.Person" id="login"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>SUMS</title>
+        <title>Blank - eKoders Responsive Admin Theme</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -50,7 +46,7 @@
 
     <body>
         <div id="wrapper">
-            <div id="main-container ">		
+            <div id="main-container">		
                 <!-- BEGIN TOP NAVIGATION -->
                 <nav class="navbar-top" role="navigation">
                     <!-- BEGIN BRAND HEADING -->
@@ -69,9 +65,10 @@
                         <!-- BEGIN RIGHT SIDE DROPDOWN BUTTONS -->
                         <ul class="nav navbar-right">					
 
+                            <!--Speech Icon-->
                             <li class="dropdown user-box">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img class="img-circle" src="assets/images/user.jpg" alt=""> <span class="user-info"><jsp:getProperty name="login" property="username"/></span> <b class="caret"></b>
+                                    <img class="img-circle" src="assets/images/user.jpg" alt=""> <span class="user-info">John Smith</span> <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
                                     <li>
@@ -79,25 +76,32 @@
                                             <i class="fa fa-user"></i>My Profile
                                         </a>
                                     </li>
+
+                                    <li>
+                                        <a href="Logout">
+                                            <i class="fa fa-user"></i>Logout
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 
-                            <!--Search Box-->
                         </ul>
                         <!-- END RIGHT SIDE DROPDOWN BUTTONS -->							
                         <!-- BEGIN TOP MENU -->
                         <div class="collapse navbar-collapse top-collapse">
                             <!-- .nav -->
                             <ul class="nav navbar-left navbar-nav">
-                                <li><a href="index.html">Mails</a></li>
+                                <li><a href="index.html">Dashboard</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         Actions <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li> <a href="Mail">Manage Mail</a></li>
-                                        <li> <a href="Ideas">Manage Idea</a></li>                                    </ul>
+                                        <li> <a href="Ideas">Manage Idea</a></li>
+                                    </ul>
                                 </li>
+
 
                             </ul><!-- /.nav -->
                         </div>
@@ -110,7 +114,7 @@
 
 
                 <!-- BEGIN MAIN PAGE CONTENT -->
-                <div id="page-wrapper" class="collapsed">
+                <div id="page-wrapper">
                     <!-- BEGIN PAGE HEADING ROW -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -128,7 +132,7 @@
 
                             <div class="page-header title">
                                 <!-- PAGE TITLE ROW -->
-                                <h1>Mail List <span class="sub-title"></span></h1>								
+                                <h1>DashBoard <span class="sub-title"></span></h1>								
                             </div>
 
 
@@ -136,53 +140,79 @@
                         </div><!-- /.col-lg-12 -->
                     </div><!-- /.row -->
                     <!-- END PAGE HEADING ROW -->					
+                    <!-- END PAGE HEADING ROW -->					
                     <div class="row">
                         <div class="col-lg-12">
 
-                            <div class="portlet">
+                            <div class="portlet"><!-- /Portlet -->
                                 <div class="portlet-heading dark">
                                     <div class="portlet-title">
-                                        <h4 id="change">Edit Mail</h4>
+                                        <h4>Project Ideas <small class="text-white"></small></h4>
                                     </div>
                                     <div class="portlet-widgets">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#f-1"><i class="fa fa-chevron-down"></i></a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#basic"><i class="fa fa-chevron-down"></i></a>
+                                        <span class="divider"></span>
+                                        <a href="#" class="box-close"><i class="fa fa-times"></i></a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div id="f-1" class="panel-collapse collapse in">
-                                    <div class="portlet-body">
-                                        <form class="form-horizontal" role="form" method="post" action="editmail">
-                                            <div class="form-group">
-                                                <div class="col-sm-12">
-                                                    <input type="hidden" value="<c:out value="${id}"/>" name="id" />
-                                                    <input type="text" class="form-control" placeholder="Enter your mail" name="mail" value="<c:out value="${email}"/>">
+                                <div id="basic" class="panel-collapse collapse in">
+                                    <div class="portlet-body no-padding">
+                                        <table class="table table-bordered table-hover tc-table">
+                                            <thead>
+                                                <tr>
 
-                                                    <div class="space-4"></div>
-
-
-
-                                                </div>
-
+                                                    <th>Title</th>
+                                                    <th>Description</th>
+                                                    <th>Aims</th>
+                                                    <th>Academic Question</th>
+                                                    <th>Submission Date</th>
+                                                    <th>Number Of Student</th>
 
 
+                                                    <th class="col-medium center">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                            </div>		
-                                            <div class="form-actions">
-                                                <div class="form-group">
-                                                    <div class="col-sm-offset-2 col-sm-10">
-                                                        <button type="submit" class="btn btn-primary" >Submit</button>
-                                                        <button type="reset" class="btn" id="cancel">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                <c:forEach items="${list}" var="m">
+                                                    <tr>
 
-                                        </form>
+                                                        <td class="hidden-xs"><c:out value="${m.getTitle()}"></c:out></td>
+                                                        <td class="hidden-xs"><c:out value="${m.getDesc()}"></c:out></td>
+                                                        <td class="hidden-xs"><c:out value="${m.getAims()}"></c:out></td>
+                                                        <td class="hidden-xs"><c:out value="${m.getAcQuestion()}"></c:out></td>
+                                                        <td class="hidden-xs"><c:out value="${m.getDate()}"></c:out></td>
+                                                        <td class="hidden-xs"><c:out value="${m.getNumberOfStudent()}"></c:out></td>
+
+                                                            <td class="col-medium center">
+                                                                <div class="btn-group btn-group-xs ">
+                                                                    <a href="ViewEditIdea?id=<c:out value="${m.getId()}"></c:out>
+                                                                   &title=<c:out value="${m.getTitle()}"></c:out>
+                                                                   &desc=<c:out value="${m.getDesc()}"></c:out>
+                                                                   &aims=<c:out value="${m.getAims()}"></c:out>
+                                                                   &acquestion=<c:out value="${m.getAcQuestion()}"></c:out>
+                                                                   &nof=<c:out value="${m.getNumberOfStudent()}"></c:out>" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
+
+                                                                </div>	
+                                                            </td>
+                                                        </tr>
+
+                                                </c:forEach>
+
+                                            </tbody>
+                                        </table>												
                                     </div>
                                 </div>
-                            </div>
 
+                            </div><!-- /Portlet -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger" onclick="window.open('AddIdea','_self')">Add New Idea</button>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- BEGIN FOOTER CONTENT -->
 
                     <!-- BEGIN FOOTER CONTENT -->		
                     <div class="footer">
@@ -203,22 +233,22 @@
                 <!-- END MAIN PAGE CONTENT -->
             </div>  
         </div> 
-    </div>	 
-    <!-- core JavaScript -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="assets/js/plugins/pace/pace.min.js"></script>
 
-    <!-- PAGE LEVEL PLUGINS JS -->
+        <!-- core JavaScript -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="assets/js/plugins/pace/pace.min.js"></script>
 
-    <!-- Themes Core Scripts -->	
-    <script src="assets/js/main.js"></script>
+        <!-- PAGE LEVEL PLUGINS JS -->
 
-    <!-- REQUIRE FOR SPEECH COMMANDS -->
-    <script src="assets/js/speech-commands.js"></script>
-    <script src="assets/js/plugins/gritter/jquery.gritter.min.js"></script>	
+        <!-- Themes Core Scripts -->	
+        <script src="assets/js/main.js"></script>
 
-    <!-- initial page level scripts for examples -->	
-</body>
+        <!-- REQUIRE FOR SPEECH COMMANDS -->
+        <script src="assets/js/speech-commands.js"></script>
+        <script src="assets/js/plugins/gritter/jquery.gritter.min.js"></script>	
+
+        <!-- initial page level scripts for examples -->	
+    </body>
 </html>

@@ -41,7 +41,7 @@ public class Mail extends HttpServlet {
         Person p=(Person)session.getAttribute("login");
         MailDAO dao=new MailDAO();
         List<Mails> data=dao.FindByParentId(p.getId());
-        RequestDispatcher send=request.getRequestDispatcher("ManageMail.jsp");
+        RequestDispatcher send=request.getRequestDispatcher("/RegisteredUsers/ManageMail.jsp");
         request.setAttribute("mail", data);
         send.forward(request, response);
     }

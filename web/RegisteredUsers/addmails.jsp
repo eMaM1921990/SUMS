@@ -6,16 +6,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:useBean  scope="session" class="model.Person" id="login"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>SUMS</title>
+        <title>Blank - eKoders Responsive Admin Theme</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -50,7 +46,7 @@
 
     <body>
         <div id="wrapper">
-            <div id="main-container ">		
+            <div id="main-container">		
                 <!-- BEGIN TOP NAVIGATION -->
                 <nav class="navbar-top" role="navigation">
                     <!-- BEGIN BRAND HEADING -->
@@ -69,27 +65,32 @@
                         <!-- BEGIN RIGHT SIDE DROPDOWN BUTTONS -->
                         <ul class="nav navbar-right">					
 
+                            <!--Speech Icon-->
                             <li class="dropdown user-box">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img class="img-circle" src="assets/images/user.jpg" alt=""> <span class="user-info"><jsp:getProperty name="login" property="username"/></span> <b class="caret"></b>
+                                    <img class="img-circle" src="assets/images/user.jpg" alt=""> <span class="user-info">John Smith</span> <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
                                     <li>
                                         <a href="Profile">
-                                            <i class="fa fa-user"></i>My Ideas
+                                            <i class="fa fa-user"></i>My Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="Logout">
+                                            <i class="fa fa-user"></i>Logout
                                         </a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <!--Search Box-->
                         </ul>
                         <!-- END RIGHT SIDE DROPDOWN BUTTONS -->							
                         <!-- BEGIN TOP MENU -->
                         <div class="collapse navbar-collapse top-collapse">
                             <!-- .nav -->
                             <ul class="nav navbar-left navbar-nav">
-                                <li><a href="index.html">Mails</a></li>
+                                <li><a href="index.html">Dashboard</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         Actions <b class="caret"></b>
@@ -99,6 +100,7 @@
                                         <li> <a href="Ideas">Manage Idea</a></li>
                                     </ul>
                                 </li>
+
 
                             </ul><!-- /.nav -->
                         </div>
@@ -111,7 +113,7 @@
 
 
                 <!-- BEGIN MAIN PAGE CONTENT -->
-                <div id="page-wrapper" class="collapsed">
+                <div id="page-wrapper">
                     <!-- BEGIN PAGE HEADING ROW -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -129,7 +131,7 @@
 
                             <div class="page-header title">
                                 <!-- PAGE TITLE ROW -->
-                                <h1>Edit Idea <span class="sub-title"></span></h1>								
+                                <h1>DashBoard <span class="sub-title"></span></h1>								
                             </div>
 
 
@@ -143,7 +145,7 @@
                             <div class="portlet">
                                 <div class="portlet-heading dark">
                                     <div class="portlet-title">
-                                        <h4 id="change">Edit Idea</h4>
+                                        <h4 id="change">Add Mail</h4>
                                     </div>
                                     <div class="portlet-widgets">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#f-1"><i class="fa fa-chevron-down"></i></a>
@@ -152,27 +154,10 @@
                                 </div>
                                 <div id="f-1" class="panel-collapse collapse in">
                                     <div class="portlet-body">
-                                        <form class="form-horizontal" role="form" method="post" action="editIdea">
+                                        <form class="form-horizontal" role="form" method="post" action="addMails">
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <input type="hidden" name="id" value="<c:out value="${id}"/>"/>
-                                                    <input type="text" class="form-control" placeholder="Enter your idea title" name="title" value="<c:out value="${title}"/>">
-
-                                                    <div class="space-4"></div>
-                                                    
-                                                    <input type="text" class="form-control" placeholder="Enter your idea description" name="description" value="<c:out value="${title}"/>">
-
-                                                    <div class="space-4"></div>
-                                                    
-                                                    <input type="text" class="form-control" placeholder="Enter your idea aims" name="aims" value="<c:out value="${aim}"/>">
-
-                                                    <div class="space-4"></div>
-                                                    
-                                                    <input type="text" class="form-control" placeholder="Enter your idea academic Question" name="academicQuestion" value="<c:out value="${acq}"/>">
-
-                                                    <div class="space-4"></div>
-                                                    
-                                                    <input type="text" class="form-control" placeholder="Enter your idea number Of Students" name="numberOfStudents" value="<c:out value="${nof}"/>">
+                                                    <input type="text" class="form-control" placeholder="Enter your mail" name="mail">
 
                                                     <div class="space-4"></div>
 
@@ -197,6 +182,8 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            
 
                         </div>
                     </div>
@@ -206,7 +193,7 @@
                         <div class="footer-inner">
                             <!-- basics/footer -->
                             <div class="footer-content">
-                                &copy; 2014 <a href="#">eKoders</a>, All Rights Reserved.
+                                &copy; 2014 <a href="#">SUMS</a>, All Rights Reserved.
                             </div>
                             <!-- /basics/footer -->
                         </div>
@@ -220,7 +207,7 @@
                 <!-- END MAIN PAGE CONTENT -->
             </div>  
         </div> 
-</div>	 
+
         <!-- core JavaScript -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>

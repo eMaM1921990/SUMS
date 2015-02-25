@@ -11,7 +11,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>SUMS</title>
+        <title>Blank - eKoders Responsive Admin Theme</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -28,7 +28,6 @@
 
         <!-- Tc core CSS -->
         <link id="qstyle" rel="stylesheet" href="assets/css/themes/style.css">	
-        <script src="assets/js/custom.js"></script>
         <!--[if lte IE 8]>
                 <link rel="stylesheet" href="assets/css/ie-fix.css" />
         <![endif]-->
@@ -47,7 +46,7 @@
 
     <body>
         <div id="wrapper">
-            <div id="main-container ">		
+            <div id="main-container">		
                 <!-- BEGIN TOP NAVIGATION -->
                 <nav class="navbar-top" role="navigation">
                     <!-- BEGIN BRAND HEADING -->
@@ -66,20 +65,25 @@
                         <!-- BEGIN RIGHT SIDE DROPDOWN BUTTONS -->
                         <ul class="nav navbar-right">					
 
+                            <!--Speech Icon-->
                             <li class="dropdown user-box">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img class="img-circle" src="assets/images/user.jpg" alt=""> <span class="user-info"><jsp:getProperty name="login" property="username"/></span> <b class="caret"></b>
+                                    <img class="img-circle" src="assets/images/user.jpg" alt=""> <span class="user-info">John Smith</span> <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
                                     <li>
-                                        <a href="#">
+                                        <a href="Profile">
                                             <i class="fa fa-user"></i>My Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="Logout">
+                                            <i class="fa fa-user"></i>Logout
                                         </a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <!--Search Box-->
                         </ul>
                         <!-- END RIGHT SIDE DROPDOWN BUTTONS -->							
                         <!-- BEGIN TOP MENU -->
@@ -97,6 +101,7 @@
                                     </ul>
                                 </li>
 
+
                             </ul><!-- /.nav -->
                         </div>
                         <!-- END TOP MENU -->
@@ -108,7 +113,7 @@
 
 
                 <!-- BEGIN MAIN PAGE CONTENT -->
-                <div id="page-wrapper" class="collapsed">
+                <div id="page-wrapper">
                     <!-- BEGIN PAGE HEADING ROW -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -126,7 +131,7 @@
 
                             <div class="page-header title">
                                 <!-- PAGE TITLE ROW -->
-                                <h1>MyProfile <span class="sub-title"></span></h1>								
+                                <h1>DashBoard <span class="sub-title"></span></h1>								
                             </div>
 
 
@@ -136,10 +141,11 @@
                     <!-- END PAGE HEADING ROW -->					
                     <div class="row">
                         <div class="col-lg-12">
+
                             <div class="portlet">
                                 <div class="portlet-heading dark">
                                     <div class="portlet-title">
-                                        <h4 id="change">Change Password</h4>
+                                        <h4 id="change">Add Idea</h4>
                                     </div>
                                     <div class="portlet-widgets">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#f-1"><i class="fa fa-chevron-down"></i></a>
@@ -148,16 +154,30 @@
                                 </div>
                                 <div id="f-1" class="panel-collapse collapse in">
                                     <div class="portlet-body">
-                                        <form class="form-horizontal" role="form" method="post">
+                                        <form class="form-horizontal" role="form" method="post" action="addideas">
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <input type="password" class="form-control" placeholder="Enter current password" id="currentpass">
+                                                    <input type="text" class="form-control" placeholder="Enter your idea title" name="title">
 
                                                     <div class="space-4"></div>
 
-                                                    <input type="password" class="form-control" placeholder="Enter new password" id="newpass">
+                                                    <input type="text" class="form-control" placeholder="Enter your idea description" name="description">
 
                                                     <div class="space-4"></div>
+
+                                                    <input type="text" class="form-control" placeholder="Enter your idea aims" name="aims">
+
+                                                    <div class="space-4"></div>
+
+                                                    <input type="text" class="form-control" placeholder="Enter your idea academic Question" name="academicQuestion">
+
+                                                    <div class="space-4"></div>
+
+                                                    <input type="text" class="form-control" placeholder="Enter your idea number Of Students" name="numberOfStudents">
+
+                                                    <div class="space-4"></div>
+
+
 
                                                 </div>
 
@@ -168,54 +188,8 @@
                                             <div class="form-actions">
                                                 <div class="form-group">
                                                     <div class="col-sm-offset-2 col-sm-10">
-                                                        <button type="button" class="btn btn-primary" onclick="changePassword('<jsp:getProperty name="login" property="password"/>', document.getElementById('currentpass').value, document.getElementById('newpass').value)">Submit</button>
-                                                        <button type="button" class="btn" id="cancel">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-12">
-                            <div class="portlet">
-                                <div class="portlet-heading dark">
-                                    <div class="portlet-title">
-                                        <h4 id="change">Change Personal Info.</h4>
-                                    </div>
-                                    <div class="portlet-widgets">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#f-1"><i class="fa fa-chevron-down"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div id="f-1" class="panel-collapse collapse in">
-                                    <div class="portlet-body">
-                                        <form class="form-horizontal" role="form" method="post">
-                                            <div class="form-group">
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control"  id="surename" value="<jsp:getProperty name="login" property="forname"/>">
-
-                                                    <div class="space-4"></div>
-
-                                                    <input type="text" class="form-control"  id="lastname" value="<jsp:getProperty name="login" property="surename"/>">
-
-                                                    <div class="space-4"></div>
-
-                                                </div>
-
-
-
-
-                                            </div>		
-                                            <div class="form-actions">
-                                                <div class="form-group">
-                                                    <div class="col-sm-offset-2 col-sm-10">
-                                                        <button type="button" class="btn btn-primary" onclick="changePassword('<jsp:getProperty name="login" property="password"/>', document.getElementById('currentpass').value, document.getElementById('newpass').value)">Submit</button>
-                                                        <button type="button" class="btn" id="cancel">Cancel</button>
+                                                        <button type="submit" class="btn btn-primary" >Submit</button>
+                                                        <button type="reset" class="btn" id="cancel">Cancel</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,6 +201,7 @@
 
                         </div>
                     </div>
+
 
                     <!-- BEGIN FOOTER CONTENT -->		
                     <div class="footer">
@@ -247,7 +222,7 @@
                 <!-- END MAIN PAGE CONTENT -->
             </div>  
         </div> 
-</div>	 
+
         <!-- core JavaScript -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>

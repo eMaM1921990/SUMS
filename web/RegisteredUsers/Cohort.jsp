@@ -6,16 +6,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:useBean  scope="session" class="model.Person" id="login"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>SUMS</title>
+        <title>Blank - eKoders Responsive Admin Theme</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -50,7 +46,7 @@
 
     <body>
         <div id="wrapper">
-            <div id="main-container ">		
+            <div id="main-container">		
                 <!-- BEGIN TOP NAVIGATION -->
                 <nav class="navbar-top" role="navigation">
                     <!-- BEGIN BRAND HEADING -->
@@ -69,9 +65,10 @@
                         <!-- BEGIN RIGHT SIDE DROPDOWN BUTTONS -->
                         <ul class="nav navbar-right">					
 
+                            <!--Speech Icon-->
                             <li class="dropdown user-box">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img class="img-circle" src="assets/images/user.jpg" alt=""> <span class="user-info"><jsp:getProperty name="login" property="username"/></span> <b class="caret"></b>
+                                    <img class="img-circle" src="assets/images/user.jpg" alt=""> <span class="user-info">John Smith</span> <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
                                     <li>
@@ -79,25 +76,31 @@
                                             <i class="fa fa-user"></i>My Profile
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="Logout">
+                                            <i class="fa fa-user"></i>Logout
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 
-                            <!--Search Box-->
                         </ul>
                         <!-- END RIGHT SIDE DROPDOWN BUTTONS -->							
                         <!-- BEGIN TOP MENU -->
                         <div class="collapse navbar-collapse top-collapse">
                             <!-- .nav -->
                             <ul class="nav navbar-left navbar-nav">
-                                <li><a href="index.html">Mails</a></li>
+                                <li><a href="index.html">Dashboard</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         Actions <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li> <a href="Mail">Manage Mail</a></li>
-                                        <li> <a href="Ideas">Manage Idea</a></li>										</ul>
+                                        <li> <a href="Ideas">Manage Idea</a></li>
+                                    </ul>
                                 </li>
+
 
                             </ul><!-- /.nav -->
                         </div>
@@ -110,7 +113,7 @@
 
 
                 <!-- BEGIN MAIN PAGE CONTENT -->
-                <div id="page-wrapper" class="collapsed">
+                <div id="page-wrapper">
                     <!-- BEGIN PAGE HEADING ROW -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -128,13 +131,14 @@
 
                             <div class="page-header title">
                                 <!-- PAGE TITLE ROW -->
-                                <h1>Mail List <span class="sub-title"></span></h1>								
+                                <h1>DashBoard <span class="sub-title"></span></h1>								
                             </div>
 
 
 
                         </div><!-- /.col-lg-12 -->
                     </div><!-- /.row -->
+                    <!-- END PAGE HEADING ROW -->					
                     <!-- END PAGE HEADING ROW -->					
                     <div class="row">
                         <div class="col-lg-12">
@@ -184,10 +188,15 @@
                                     </div>
                                 </div>
                             </div><!-- /Portlet -->
+                            
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger" onclick="window.open('AddMail','_self')">Add New Mail</button>
+                            </div>
 
                         </div>
                     </div>
 
+                    <!-- BEGIN FOOTER CONTENT -->
                     <!-- BEGIN FOOTER CONTENT -->		
                     <div class="footer">
                         <div class="footer-inner">
@@ -207,7 +216,7 @@
                 <!-- END MAIN PAGE CONTENT -->
             </div>  
         </div> 
-</div>	 
+
         <!-- core JavaScript -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>

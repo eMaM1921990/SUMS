@@ -84,8 +84,7 @@
 
                         <div class="footer-wrap">
                             <span class="pull-left">
-                                <a href="#" onclick="show_box('forgot-box');
-                                                                        return false;"><i class="fa fa-angle-double-left"></i> Forgot password?</a>
+                                <a href="#" onclick="window.open('Home','_self')"><i class="fa fa-angle-double-left"></i>Login as Guest</a>
                             </span>
 
                             <span class="pull-right">
@@ -102,7 +101,7 @@
                 <!-- BEGIN FORGOT BOX -->
                 <div id="forgot-box" class="login-box">				
                     <p class="bigger-110">
-                        <i class="fa fa-key"></i> Retrieve Password
+                        <i class="fa fa-key"></i> G
                     </p>
 
                     <div class="hr hr-8 hr-double dotted"></div>

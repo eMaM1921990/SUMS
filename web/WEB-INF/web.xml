@@ -68,6 +68,10 @@
         <servlet-name>editIdea</servlet-name>
         <servlet-class>controller.editIdea</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>controller.Logout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>editIdea</servlet-name>
         <url-pattern>/editIdea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

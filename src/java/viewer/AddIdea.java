@@ -32,7 +32,7 @@ public class AddIdea extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher send=request.getRequestDispatcher("addIdea.jsp");
+        RequestDispatcher send=request.getRequestDispatcher("/RegisteredUsers/addIdea.jsp");
         send.forward(request, response);
     }
 
