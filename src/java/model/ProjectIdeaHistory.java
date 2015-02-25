@@ -17,6 +17,14 @@ public class ProjectIdeaHistory {
     private String reason;
     private int PROJECTID;
     
+    public void setProjecID(int i){
+        this.PROJECTID=i;
+    }
+    
+    public int getProjectID(){
+        return PROJECTID;
+    }
+    
     public void setidProjectIdeaHistory(int i){
         this.idProjectIdeaHistory=i;
     }

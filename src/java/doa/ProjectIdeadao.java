@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.ProjectIdea;
+import model.ProjectIdeaHistory;
 import utils.DBConnection;
 
 /**
@@ -21,12 +22,15 @@ import utils.DBConnection;
 public class ProjectIdeadao implements dao.i.dao<ProjectIdea>{
 
     DBConnection db=new DBConnection();
+    ProjectIdeaHistory ph=new ProjectIdeaHistory();
+    ProjectIdeaHistorydao dao=new ProjectIdeaHistorydao();
+    
     @Override
     public String Presist(ProjectIdea o) {
         String msg=null;
         try {
             db.connect();
-            db.pstm=db.con.prepareStatement("INSERT INTO ProjectIdea (title,description,aims,academicQuestion,numberOfStudents,PERSON_ID) VALUES (?,?,?,?,?,?)");
+            db.pstm=db.con.prepareStatement("INSERT INTO ProjectIdea (title,description,aims,academicQuestion,numberOfStudents,PERSON_ID) VALUES (?,?,?,?,?,?)",db.stmt.RETURN_GENERATED_KEYS);
             db.pstm.setString(1, o.getTitle());
             db.pstm.setString(2, o.getDesc());
             db.pstm.setString(3, o.getAims());
@@ -34,7 +38,20 @@ public class ProjectIdeadao implements dao.i.dao<ProjectIdea>{
             db.pstm.setInt(5, o.getNumberOfStudent());
             db.pstm.setInt(6,o.getPersonid());
             db.pstm.executeUpdate();
+            db.rs=db.pstm.getGeneratedKeys();
+            int id=0;
+            while(db.rs.next()){
+                id=db.rs.getInt(1);
+            }
+            
+            
             db.closeConnection();
+            
+            ph.setChange("Add New idea named "+o.getTitle());
+            ph.setReason("Add");
+            ph.setProjectID(id);
+            dao.Presist(ph);
+            
             msg="saved";
         } catch (SQLException ex) {
             db.closeConnection();
@@ -112,6 +129,12 @@ public class ProjectIdeadao implements dao.i.dao<ProjectIdea>{
             db.pstm.setInt(6, o.getId());
             db.pstm.executeUpdate();
             db.closeConnection();
+            
+            ph.setChange("Edit idea named "+o.getTitle());
+            ph.setReason("Edit");
+            ph.setProjectID(o.getId());
+            dao.Presist(ph);
+            
             msg="Updated";
         } catch (SQLException ex) {
             db.closeConnection();

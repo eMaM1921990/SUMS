@@ -24,7 +24,23 @@ public class ProjectIdeaHistorydao implements dao.i.dao<ProjectIdeaHistory>{
     
     @Override
     public String Presist(ProjectIdeaHistory o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String msg=null;
+        try {
+            db.connect();
+            db.pstm=db.con.prepareStatement("INSERT INTO ProjectIdeaHistory (change,reson,PROJECTID) VALUES (?,?,?)");
+            db.pstm.setString(1, o.getChange());
+            db.pstm.setString(2, o.getReason());
+            db.pstm.setInt(3, o.getProjectID());
+            db.pstm.executeUpdate();
+            db.closeConnection();
+            msg="saved";
+        } catch (SQLException ex) {
+            db.closeConnection();
+            Logger.getLogger(ProjectIdeaHistorydao.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
+        return msg;
     }
 
     @Override
